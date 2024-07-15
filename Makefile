@@ -6,7 +6,7 @@
 #    By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/11 18:06:45 by abderrahim        #+#    #+#              #
-#    Updated: 2024/07/13 09:46:28 by abderrahim       ###   ########.fr        #
+#    Updated: 2024/07/15 13:39:05 by aindjare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,14 @@ RM			:=	rm -rf
 
 NAME		:=	push_swap
 NAME_BONUS	:=	checker
-OBJS		:=	push_swap.o
-OBJS_BONUS	:=	checker.o
+OBJS		:=	push_swap.o state.o state_action.o state_utility.o
+OBJS_BONUS	:=	checker.o state.o state_action.o state_utility.o
 SHARED_OBJS	:=	writef/libwritef.a string/libstring.a stack/libstack.a \
-				stack/list/liblist.a memory/libmemory.a 
+				stack/list/liblist.a memory/libmemory.a
 
 all: $(NAME)
+
+bonus: $(NAME_BONUS)
 
 sanitize_deps:
 	$(MAKE) -C memory sanitize
@@ -54,7 +56,7 @@ $(NAME): $(SHARED_OBJS) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(SHARED_OBJS) -o $(NAME)
 
 $(NAME_BONUS):	$(SHARED_OBJS) $(OBJS_BONUS)
-	$(CC) $(CFLAGS) $(SHARED_OBJS) $(OBJS_BONUS) -o $(NAME_BONUS)
+	$(CC) $(CFLAGS) $(OBJS_BONUS) $(SHARED_OBJS) -o $(NAME_BONUS)
 
 clean:
 	$(MAKE) -C memory clean
