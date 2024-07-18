@@ -6,7 +6,7 @@
 #    By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 15:09:42 by abderrahim        #+#    #+#              #
-#    Updated: 2024/07/12 19:46:40 by abderrahim       ###   ########.fr        #
+#    Updated: 2024/07/18 11:25:34 by aindjare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ RM		:=	rm -rf
 NAME	:=	libstack.a
 OBJECTS	:=	stack_new.o stack_spread.o stack_push.o stack_rot.o \
 			stack_includes.o stack_is_sorted.o stack_rot_rev.o \
-			stack_set_indices.o stack_swap.o stack_at.o
+			stack_find.o stack_set_indices.o stack_swap.o stack_at.o
 
 all: $(NAME)
 

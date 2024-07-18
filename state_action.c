@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 13:34:13 by aindjare          #+#    #+#             */
-/*   Updated: 2024/07/15 13:34:52 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:41:07 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	state_action_execute(t_state *state, const char *action)
 	else if (string_equals("pa\n", action))
 		return (stack_push(&state->stack_b, &state->stack_a), 1);
 	else if (string_equals("pb\n", action))
-		return (stack_push(&state->stack_b, &state->stack_a), 1);
+		return (stack_push(&state->stack_a, &state->stack_b), 1);
 	else
 		return (0);
 }

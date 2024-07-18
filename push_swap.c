@@ -6,7 +6,7 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 14:55:20 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/15 13:42:43 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/07/18 12:44:21 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,26 +37,50 @@ void	state_sorter_three(t_state *state)
 	}
 }
 
-void	mech_turk_procedure(t_state *state)
+t_stack	*stack_turkish_nearest(t_stack *stack, int base)
 {
-	(void)state;
+	int		dist;
+	t_stack	*iter;
+	t_stack	*pref;
+
+	dist = INT_MAX;
+	iter = stack;
+	pref = stack;
+	while (iter)
+	{
+		if (iter->index < base && base - iter->index < dist)
+		{
+			dist = iter->index - base;
+			pref = iter;
+		}
+		iter = (t_stack *)iter->next;
+	}
+	if (pref)
+		return (pref);
+	else
+		return (stack_find_max(stack));
 }
 
-void	state_sorter_mech_turk(t_state *state)
+void	sorter_turkish_internal(t_state *state)
 {
-	t_stack	**stack;
+	// int	desired_index = state->stack_a->index;
+	// t_stack	*sibling = stack_turkish_nearest(state->stack_b, desired_index);
+	state_action_verbose(state, "pb\n");
+}
 
-	stack = &state->stack_a;
-	while (!stack_is_sorted_asc(*stack) && list_size(*stack) > 3)
+void	state_sorter_turkish(t_state *state)
+{
+	state_print(state);
+	while (list_size(state->stack_a) > 3)
 	{
-		if (list_size(state->stack_b) > 2)
-			mech_turk_procedure(state);
-		else if (list_size(state->stack_b) > 0)
-			state_action_verbose(state, "pb\n");
+		if (list_size(state->stack_b) >= 2)
+			sorter_turkish_internal(state);
 		else
-			break ;
+			state_action_verbose(state, "pb\n");
 	}
+	// Only three elements remaining.
 	state_sorter_three(state);
+	state_print(state);
 }
 
 void	state_execute(t_state *state)
@@ -68,10 +92,10 @@ void	state_execute(t_state *state)
 	len = list_size(state->stack_a);
 	if (len == 2)
 		state_action_verbose(state, "sa\n");
-	if (len == 3)
+	else if (len == 3)
 		state_sorter_three(state);
-	if (len <= 5)
-		state_sorter_mech_turk(state);
+	else
+		state_sorter_turkish(state);
 	state_set_error(state, !stack_is_sorted_asc(state->stack_a));
 	state_set_error(state, list_size(state->stack_b) > 0);
 }

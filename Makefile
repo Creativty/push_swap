@@ -6,7 +6,7 @@
 #    By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/11 18:06:45 by abderrahim        #+#    #+#              #
-#    Updated: 2024/07/15 13:39:05 by aindjare         ###   ########.fr        #
+#    Updated: 2024/07/18 11:31:07 by aindjare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,9 @@ SHARED_OBJS	:=	writef/libwritef.a string/libstring.a stack/libstack.a \
 
 all: $(NAME)
 
+debug: CFLAGS = -Wall -Wextra -Werror -g
+debug: $(NAME)
+
 bonus: $(NAME_BONUS)
 
 sanitize_deps:
@@ -38,19 +41,19 @@ sanitize: sanitize_deps
 	$(CC) $(CFLAGS) -g -fsanitize=address $(OBJS) $(SHARED_OBJS) -o $(NAME)
 
 string/libstring.a:
-	$(MAKE) -C string
+	$(MAKE) -C string CFLAGS="$(CFLAGS)"
 
 stack/libstack.a:
-	$(MAKE) -C stack
+	$(MAKE) -C stack CFLAGS="$(CFLAGS)"
 
 stack/list/liblist.a:
-	$(MAKE) -C stack/list
+	$(MAKE) -C stack/list CFLAGS="$(CFLAGS)"
 
 memory/libmemory.a:
-	$(MAKE) -C memory
+	$(MAKE) -C memory CFLAGS="$(CFLAGS)"
 
 writef/libwritef.a:
-	$(MAKE) -C writef
+	$(MAKE) -C writef CFLAGS="$(CFLAGS)"
 
 $(NAME): $(SHARED_OBJS) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(SHARED_OBJS) -o $(NAME)
