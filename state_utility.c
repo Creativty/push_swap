@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 13:38:38 by aindjare          #+#    #+#             */
-/*   Updated: 2024/07/15 13:40:54 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/07/19 19:01:12 by abderrahim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 #include "push_swap.h"
 #include "string/string.h"
 #include "writef/writef.h"
-
-void	state_set_error(t_state *state, int error)
-{
-	state->is_error = state->is_error || error;
-}
 
 int	state_atoi(t_state *state, const char *arg)
 {
@@ -42,6 +37,11 @@ int	state_atoi(t_state *state, const char *arg)
 	if (n > (long)INT_MAX || n < (long)INT_MIN)
 		return (state_set_error(state, 1), -1);
 	return (n * sign);
+}
+
+void	state_set_error(t_state *state, int error)
+{
+	state->is_error = state->is_error || error;
 }
 
 static void	stack_print(t_stack *stack)

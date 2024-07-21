@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 13:34:13 by aindjare          #+#    #+#             */
-/*   Updated: 2024/07/18 12:41:07 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/07/19 18:53:25 by abderrahim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,9 @@ int	state_action_execute(t_state *state, const char *action)
 void	state_action_verbose(t_state *state, const char *action)
 {
 	if (state_action_execute(state, action))
+	{
 		writef("%s", action);
+		state->length_a = list_size(state->stack_a);
+		state->length_b = list_size(state->stack_b);
+	}
 }

@@ -6,13 +6,12 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 14:55:20 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/18 12:44:21 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/07/20 14:11:25 by abderrahim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
-#include <stddef.h>
 #include "push_swap.h"
+#include "quicksort.h"
 #include "stack/stack.h"
 #include "stack/list/list.h"
 #include "writef/writef.h"
@@ -37,50 +36,48 @@ void	state_sorter_three(t_state *state)
 	}
 }
 
-t_stack	*stack_turkish_nearest(t_stack *stack, int base)
+void	state_sorter_quicksort(t_state *state)
 {
-	int		dist;
-	t_stack	*iter;
-	t_stack	*pref;
-
-	dist = INT_MAX;
-	iter = stack;
-	pref = stack;
-	while (iter)
-	{
-		if (iter->index < base && base - iter->index < dist)
-		{
-			dist = iter->index - base;
-			pref = iter;
-		}
-		iter = (t_stack *)iter->next;
-	}
-	if (pref)
-		return (pref);
-	else
-		return (stack_find_max(stack));
+	quicksort_a2b(state, state->length_a);
+	for (t_stack *node = state->stack_a; node; node = (t_stack *)node->next)
+		writef("%d ", node->index);
+	writef("\n");
 }
 
-void	sorter_turkish_internal(t_state *state)
+void	quicksort_a2b_three(t_state *state);
+
+void	state_sorter_four(t_state *state)
 {
-	// int	desired_index = state->stack_a->index;
-	// t_stack	*sibling = stack_turkish_nearest(state->stack_b, desired_index);
-	state_action_verbose(state, "pb\n");
+	if (stack_at(state->stack_a, 0)->index == 3)
+		state_action_verbose(state, "ra\n");
+	while (stack_at(state->stack_a, 3)->index != 3)
+		state_action_verbose(state, "rra\n");
+	quicksort_a2b_three(state);
 }
 
-void	state_sorter_turkish(t_state *state)
+void	state_sorter_five(t_state *state)
 {
-	state_print(state);
+	int	i;
+
 	while (list_size(state->stack_a) > 3)
 	{
-		if (list_size(state->stack_b) >= 2)
-			sorter_turkish_internal(state);
-		else
-			state_action_verbose(state, "pb\n");
+		i = 0;
+		while (stack_at(state->stack_a, i)->index > 1)
+			i++;
+		while (stack_at(state->stack_a, 0)->index > 1)
+		{
+			if (i <= 2)
+				state_action_verbose(state, "ra\n");
+			else
+				state_action_verbose(state, "rra\n");
+		}
+		state_action_verbose(state, "pb\n");
 	}
-	// Only three elements remaining.
 	state_sorter_three(state);
-	state_print(state);
+	if (!stack_is_sorted_desc(state->stack_b))
+		state_action_verbose(state, "sb\n");
+	state_action_verbose(state, "pa\n");
+	state_action_verbose(state, "pa\n");
 }
 
 void	state_execute(t_state *state)
@@ -94,8 +91,16 @@ void	state_execute(t_state *state)
 		state_action_verbose(state, "sa\n");
 	else if (len == 3)
 		state_sorter_three(state);
+	else if (len == 4)
+		state_sorter_four(state);
+	else if (len == 5)
+		state_sorter_five(state);
 	else
-		state_sorter_turkish(state);
+		state_sorter_quicksort(state);
+	if (stack_is_sorted_asc(state->stack_a))
+		writef("stack a is sorted.\n");
+	if (list_size(state->stack_b) == 0)
+		writef("stack b is empty.\n");
 	state_set_error(state, !stack_is_sorted_asc(state->stack_a));
 	state_set_error(state, list_size(state->stack_b) > 0);
 }

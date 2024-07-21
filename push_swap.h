@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 13:25:24 by aindjare          #+#    #+#             */
-/*   Updated: 2024/07/15 13:40:49 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/07/19 18:15:57 by abderrahim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ typedef struct s_state
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	int		length_a;
+	int		length_b;
 	int		is_error;
 }	t_state;
 
@@ -36,5 +38,7 @@ int		state_action_execute(t_state *state, const char *action);
 int		state_atoi(t_state *state, const char *arg);
 void	state_set_error(t_state *state, int error);
 void	state_print(t_state *state);
+
+void	state_sorter_quicksort(t_state *state);
 
 #endif

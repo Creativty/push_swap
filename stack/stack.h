@@ -6,7 +6,7 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:30:35 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/18 11:34:26 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/07/19 17:19:58 by abderrahim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int		stack_is_sorted_asc(t_stack *stack);
 int		stack_is_sorted_desc(t_stack *stack);
 int		stack_includes(t_stack *stack, int value);
 void	stack_set_indices(t_stack *stack);
+void	stack_set_indices_zeroed(t_stack *stack);
 t_stack	*stack_at(t_stack *stack, int index);
 t_stack	*stack_find_max(t_stack *stack);
 t_stack	*stack_find_min(t_stack *stack);

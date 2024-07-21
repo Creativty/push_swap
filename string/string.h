@@ -6,7 +6,7 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 18:19:17 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/12 10:33:07 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/21 11:29:56 by abderrahim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int		string_equals(const char *lhs, const char *rhs);
 int		string_includes_not(const char *str, const char *charset);
 char	*string_duplicate(const char *str);
 char	*string_substring(const char *str, int sub_len);
+char	**string_split(const char *str, char sep);
 
 #endif

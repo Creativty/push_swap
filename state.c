@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 13:32:19 by aindjare          #+#    #+#             */
-/*   Updated: 2024/07/15 13:38:22 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/07/19 18:15:24 by abderrahim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,15 @@ int	state_halt(t_state *state)
 
 void	state_start(t_state *state, const char **argv)
 {
+	if (!state)
+		return ;
 	memory_zero(state, sizeof(t_state));
 	state_collect_argv(state, argv);
 	state_check_duplicates(state);
 	if (state->is_error)
 		return ;
+	state->length_a = list_size(state->stack_a);
+	state->length_b = list_size(state->stack_b);
 	stack_set_indices(state->stack_a);
 }
 

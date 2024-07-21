@@ -6,7 +6,7 @@
 #    By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/11 18:24:13 by abderrahim        #+#    #+#              #
-#    Updated: 2024/07/12 19:46:59 by abderrahim       ###   ########.fr        #
+#    Updated: 2024/07/21 11:34:21 by abderrahim       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ RM		:=	rm -rf
 NAME	:=	libstring.a
 OBJECTS	:=	string_copy.o string_duplicate.o string_includes.o \
 			string_length.o string_index_of.o string_substring.o \
-			string_equals.o
+			string_equals.o string_split.o
 
 all: $(NAME)
 
