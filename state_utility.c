@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 13:38:38 by aindjare          #+#    #+#             */
-/*   Updated: 2024/07/21 13:31:29 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/23 18:43:54 by abderrahim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	state_atoi(t_state *state, const char *arg)
 	i = 0;
 	sign = 1;
 	state_set_error(state, string_includes_not(arg, "-0123456789"));
+	state_set_error(state, string_length(arg) == 0);
 	if (!arg || state->is_error)
 		return (n);
 	if (arg[i] == '-')

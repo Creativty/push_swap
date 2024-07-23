@@ -6,7 +6,7 @@
 #    By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/11 18:06:45 by abderrahim        #+#    #+#              #
-#    Updated: 2024/07/22 16:50:48 by abderrahim       ###   ########.fr        #
+#    Updated: 2024/07/23 18:46:48 by abderrahim       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,6 +90,13 @@ re_deps:
 	$(MAKE) -C writef re
 
 re: fclean re_deps all
+
+checker_OS:
+	@echo "downloading remote checker from 42cdn..."
+	@wget -q -O $@ 'https://cdn.intra.42.fr/document/document/25123/checker_linux'
+	@echo "setting executable permissions..."
+	@chmod +x $@
+	@echo "done, you can now use it via" "$@"
 
 .PHONY: all clean fclean re re_deps
 

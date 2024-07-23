@@ -6,7 +6,7 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 14:55:20 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/21 17:14:50 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/23 18:47:52 by abderrahim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int argc, const char **argv)
 	(void)argc;
 	state_start(&state, &argv[1]);
 	if (state.is_error)
-		writef("Error\n");
+		writefd(2, "Error\n");
 	else
 		state_execute_push_swap(&state);
 	return (state_cleanup(&state), state.is_error);
