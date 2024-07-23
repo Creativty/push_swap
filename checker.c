@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 13:28:09 by aindjare          #+#    #+#             */
-/*   Updated: 2024/07/22 16:53:08 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/23 13:06:58 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ void	state_execute_checker(t_state *state)
 			break ;
 		if (!state_action_execute(state, command))
 		{
-			writef("Error\n");
-			state->is_error = 1;
+			writef("unrecognized command: %s", command);
+			// writef("Error\n");
+			// state->is_error = 1;
 		}
 		free(command);
 	}

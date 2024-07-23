@@ -6,7 +6,7 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 18:19:17 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/21 14:19:37 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/23 13:02:30 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 int		string_copy(const char *src, char *dst, int count);
 int		string_length(const char *str);
+int		string_length_safe(const char *str, int capacity);
 int		string_includes(const char *str, char rune);
 int		string_index_of(const char *hay, char needle);
 int		string_index_of_safe(const char *hay, int length, char needle);

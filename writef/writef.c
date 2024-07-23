@@ -6,7 +6,7 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 18:59:31 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/11 18:23:15 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/23 13:04:40 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,37 @@ int	writef_int(int fd, t_format fmt, int n)
 	return (write_int(fd, n));
 }
 
+int	writef_rune(int fd, t_format fmt, char rune)
+{
+	(void)fmt;
+	return (write_rune(fd, rune));
+}
+
+// static void	write_bytes(char *buff, uint count) {
+// 	#define COL 8
+// 	for (uint i = 0; i < (count / COL); i++) {
+// 		for (uint j = 0; j < COL; j++) {
+// 			if (i * count + j >= count)
+// 				break ;
+// 			if (buff[i * count + j] == '\n')
+// 				writef("<\\n>");
+// 			else if (buff[i * count + j] == '\0')
+// 				writef("<\\0>");
+// 			else
+// 				writef("%c", buff[i * count + j]);
+// 			writef(" ");
+// 		}
+// 		writef("\n");
+// 	}
+// }
+
 int	writef_dynamic(int fd, const char *format, int *offset, va_list args)
 {
 	t_format	fmt;
 
 	fmt = writef_format(format, offset);
+	if (fmt.specifier == 'c')
+		return (writef_rune(fd, fmt, (char)va_arg(args, int)));
 	if (fmt.specifier == 's')
 		return (writef_cstring(fd, fmt, va_arg(args, char *)));
 	if (fmt.specifier == 'p')
