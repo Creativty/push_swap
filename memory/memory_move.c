@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_index_of.c                                  :+:      :+:    :+:   */
+/*   memory_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/11 18:20:03 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/21 14:19:08 by abderrahim       ###   ########.fr       */
+/*   Created: 2024/07/21 17:19:03 by abderrahim        #+#    #+#             */
+/*   Updated: 2024/07/21 17:23:44 by abderrahim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "string.h"
+#include "memory.h"
 
-int	string_index_of(const char *hay, char needle)
+void	memory_move(void *src, uint count, void *dst)
 {
-	return (string_index_of_safe(hay, string_length(hay), needle));
-}
+	uint	i;
 
-int	string_index_of_safe(const char *hay, int length, char needle)
-{
-	int	i;
-
-	if (hay && needle)
+	if (!dst && !src)
+		return ;
+	i = 1;
+	if (dst >= src)
 	{
-		i = 0;
-		while (hay[i] && i < length)
+		while (i <= count)
 		{
-			if (hay[i] == needle)
-				return (i);
+			((char *)dst)[count - i] = ((char *)src)[count - i];
 			i++;
 		}
 	}
-	return (-1);
+	else
+		memory_copy(src, count, dst);
 }

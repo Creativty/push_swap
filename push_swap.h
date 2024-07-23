@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 13:25:24 by aindjare          #+#    #+#             */
-/*   Updated: 2024/07/19 18:15:57 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/22 16:49:24 by abderrahim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_state
 }	t_state;
 
 void	state_start(t_state *state, const char **argv);
-void	state_execute(t_state *state);
+void	state_execute_push_swap(t_state *state);
 void	state_cleanup(t_state *state);
 int		state_halt(t_state *state);
 
@@ -40,5 +40,8 @@ void	state_set_error(t_state *state, int error);
 void	state_print(t_state *state);
 
 void	state_sorter_quicksort(t_state *state);
+void	state_sorter_three(t_state *state);
+void	state_sorter_four(t_state *state);
+void	state_sorter_five(t_state *state);
 
 #endif

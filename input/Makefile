@@ -5,40 +5,34 @@
 #                                                     +:+ +:+         +:+      #
 #    By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/11 18:24:13 by abderrahim        #+#    #+#              #
-#    Updated: 2024/07/21 17:32:12 by abderrahim       ###   ########.fr        #
+#    Created: 2024/07/21 17:25:50 by abderrahim        #+#    #+#              #
+#    Updated: 2024/07/22 16:47:58 by abderrahim       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-AR		:=	ar
-ARFLAGS	:=	rcs
+AR			:=	ar rcs
 
-CC		:=	cc
-CFLAGS	:=	-Wall -Wextra -Werror
+CC			:=	cc
+CFLAGS		:=	-Wall -Wextra -Werror
 
-RM		:=	rm -rf
+RM			:=	rm -rf
 
-NAME	:=	libstring.a
-OBJECTS	:=	string_copy.o string_duplicate.o string_includes.o \
-			string_length.o string_index_of.o string_substring.o \
-			string_equals.o string_split.o string_join.o
+NAME		:=	libinput.a
+OBJS		:=	input_readline.o
 
 all: $(NAME)
 
-sanitize: CFLAGS=-Wall -Wextra -Werror -g -fsanitize=address
-sanitize: $(NAME)
-
-$(NAME): $(OBJECTS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJECTS)
+$(NAME): $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
 clean:
-	$(RM) $(OBJECTS)
+	$(RM) $(OBJS)
 
-fclean: clean
+fclean:
 	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re sanitize
+.PHONY: all clean fclean re
 
-.SECONDARY: $(OBJECTS)
+.SECONDARY: $(OBJS)

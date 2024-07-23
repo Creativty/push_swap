@@ -6,7 +6,7 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 11:09:13 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/21 11:36:03 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/21 13:32:33 by abderrahim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	**string_split(const char *str, char sep)
 	{
 		count = string_split_populate(str, sep, splits, size);
 		if (count != size)
-			return (memory_free_list_members((void **)splits, count, 1), NULL);
+			return (memory_free_count((void **)splits, count, 1), NULL);
 		splits[size] = NULL;
 	}
 	return (splits);
