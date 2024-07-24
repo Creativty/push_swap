@@ -6,12 +6,12 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 18:19:17 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/23 13:02:30 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/07/24 12:25:21 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRING_H
-#define STRING_H
+# define STRING_H
 
 int		string_copy(const char *src, char *dst, int count);
 int		string_length(const char *str);

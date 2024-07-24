@@ -6,7 +6,7 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:02:40 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/11 18:23:36 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/24 12:21:37 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 t_format	format_make(void)
 {
 	t_format	format;
-	
+
 	memory_zero(&format, sizeof(format));
 	return (format);
 }

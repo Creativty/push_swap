@@ -6,7 +6,7 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:16:56 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/08 18:31:47 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/24 12:21:14 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ t_stack	*stack_new(int value, int index, void *next)
 void	stack_free(t_stack *stack)
 {
 	if (stack)
-		stack_free((t_stack*)stack->next);
+		stack_free((t_stack *)stack->next);
 	free(stack);
 }

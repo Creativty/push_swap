@@ -6,14 +6,14 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:30:35 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/19 17:19:58 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/24 12:21:04 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
-#define STACK_H
+# define STACK_H
 
-#include "list/list.h"
+# include "list/list.h"
 
 typedef struct s_stack
 {

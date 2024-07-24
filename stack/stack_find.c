@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 10:08:57 by aindjare          #+#    #+#             */
-/*   Updated: 2024/07/18 11:34:24 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/07/24 12:20:51 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_stack	*stack_find_min(t_stack *stack)
 
 t_stack	*stack_find_max(t_stack *stack)
 {
-	int	max;
+	int		max;
 	t_stack	*pref;
 	t_stack	*iter;
 

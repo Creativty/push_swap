@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_push.c                                       :+:      :+:    :+:   */
+/*   write_ulong.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
+/*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/08 16:52:11 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/24 12:24:57 by aindjare         ###   ########.fr       */
+/*   Created: 2024/07/24 12:30:18 by aindjare          #+#    #+#             */
+/*   Updated: 2024/07/24 12:30:22 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include <unistd.h>
 
-void	stack_push(t_stack **from, t_stack **to)
+int	write_ulong(int fd, unsigned long n)
 {
-	if (!from || !to)
-		return ;
-	list_insert((t_list **)to, list_shift((t_list **)from));
+	if (n < 10)
+		return (write(fd, &("0123456789"[n]), 1));
+	else
+		return (write_ulong(fd, n / 10) + write_ulong(fd, n % 10));
 }

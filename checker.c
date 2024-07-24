@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 13:28:09 by aindjare          #+#    #+#             */
-/*   Updated: 2024/07/23 18:44:26 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/24 11:49:49 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int	main(int argc, const char **argv)
 		state_execute_checker(&state);
 	if (!state.is_error)
 	{
-		if (state_halt(&state)) {
+		if (state_halt(&state))
+		{
 			if (list_size((t_list *)state.stack_a) > 0)
 				writef("OK\n");
 		}

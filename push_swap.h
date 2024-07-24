@@ -6,14 +6,14 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 13:25:24 by aindjare          #+#    #+#             */
-/*   Updated: 2024/07/22 16:49:24 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/24 11:48:12 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "stack/stack.h"
+# include "stack/stack.h"
 
 typedef struct s_state
 {

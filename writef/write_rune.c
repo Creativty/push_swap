@@ -1,14 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   writers.c                                          :+:      :+:    :+:   */
+/*   write_rune.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
+/*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/07 18:16:55 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/24 12:30:23 by aindjare         ###   ########.fr       */
+/*   Created: 2024/07/24 12:29:44 by aindjare          #+#    #+#             */
+/*   Updated: 2024/07/24 12:29:47 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
 #include <unistd.h>
+
+int	write_rune(int fd, unsigned char rune)
+{
+	return (write(fd, &rune, 1));
+}
+
+int	write_rune_repeat(int fd, unsigned char rune, int count)
+{
+	int	i;
+
+	i = 0;
+	while (i < count)
+	{
+		if (write_rune(fd, rune) < 0)
+			break ;
+		i++;
+	}
+	return (i);
+}

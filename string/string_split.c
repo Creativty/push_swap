@@ -6,7 +6,7 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 11:09:13 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/21 13:32:33 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/24 12:25:33 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,6 @@ static int	string_split_populate(
 	return (size);
 }
 
-/*
-* @param const char *string: string to operate on.
-* @param char sep: separator to use as a delimiter for splits.
-* @returns in case successful a NULL terminated array of strings, otherwise a NULL pointer.
-*/
 char	**string_split(const char *str, char sep)
 {
 	int		size;

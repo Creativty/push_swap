@@ -6,13 +6,12 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 19:18:18 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/07 19:19:37 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/24 12:21:58 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef MATH_H
-#define MATH_H
+# define MATH_H
 
 int	max(int a, int b);
 int	min(int a, int b);

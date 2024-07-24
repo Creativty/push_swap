@@ -6,18 +6,17 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:00:34 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/11 18:05:40 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/24 12:25:09 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIST_H
-#define LIST_H
+# define LIST_H
 
 typedef struct s_list
 {
 	struct s_list	*next;
 }	t_list;
-
 
 t_list			*list_new(void);
 unsigned int	list_size(void *head);
