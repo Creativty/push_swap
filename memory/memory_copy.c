@@ -6,15 +6,15 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 17:24:02 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/21 17:25:06 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/25 09:10:00 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory.h"
 
-void	memory_copy(void *src, uint count, void *dst)
+void	memory_copy(void *src, t_uint count, void *dst)
 {
-	uint	i;
+	t_uint	i;
 
 	if (dst && src)
 	{

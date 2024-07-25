@@ -6,7 +6,7 @@
 #    By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 15:09:42 by abderrahim        #+#    #+#              #
-#    Updated: 2024/07/21 17:25:25 by abderrahim       ###   ########.fr        #
+#    Updated: 2024/07/25 09:36:10 by aindjare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ CFLAGS	:=	-Wall -Wextra -Werror
 RM		:=	rm -rf
 
 NAME	:=	libmemory.a
-OBJECTS	:=	memory_copy.o memory_move.o memory_set.o memory_zero.o memory_free.o
+OBJECTS	:=	memory_copy.o memory_move.o memory_set.o memory_zero.o \
+			memory_free.o memory_length.o
 
 all: $(NAME)
 

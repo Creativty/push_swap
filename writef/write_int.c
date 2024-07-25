@@ -6,12 +6,13 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 12:27:54 by aindjare          #+#    #+#             */
-/*   Updated: 2024/07/24 12:28:08 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/07/25 09:16:45 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <limits.h>
 #include <unistd.h>
+#include "writef.h"
 
 int	write_int(int fd, int n)
 {
@@ -23,4 +24,10 @@ int	write_int(int fd, int n)
 		return (write(fd, &("0123456789"[n]), 1));
 	else
 		return (write_int(fd, n / 10) + write_int(fd, n % 10));
+}
+
+int	writef_int(int fd, t_format fmt, int n)
+{
+	(void)fmt;
+	return (write_int(fd, n));
 }

@@ -1,6 +1,7 @@
 .cache
 push_swap
 checker
+checker_OS
 compile_commands.json
 **/*.o
 **/*.a

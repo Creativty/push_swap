@@ -6,15 +6,15 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 17:19:03 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/21 17:23:44 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/25 09:10:29 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory.h"
 
-void	memory_move(void *src, uint count, void *dst)
+void	memory_move(void *src, t_uint count, void *dst)
 {
-	uint	i;
+	t_uint	i;
 
 	if (!dst && !src)
 		return ;

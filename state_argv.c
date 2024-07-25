@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 12:26:35 by aindjare          #+#    #+#             */
-/*   Updated: 2024/07/24 12:26:56 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/07/25 09:35:39 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	state_collect_argv_group(t_state *state, const char *arg)
 	if (string_includes(arg, ' '))
 	{
 		argv = string_split(arg, ' ');
-		if (argv)
+		if (argv && memory_length((void **)argv) > 0)
 		{
 			state_collect_argv(state, (const char **)argv);
 			return (memory_free_cstyle((void **)argv, 1), 1);

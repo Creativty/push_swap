@@ -6,7 +6,7 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 18:29:27 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/24 12:22:42 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/07/25 09:24:47 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,15 @@ int			write_ulong(int fd, unsigned long n);
 int			write_uint(int fd, unsigned int n);
 int			write_long(int fd, long n);
 int			write_int(int fd, int n);
+
+int			writef_int(int fd, t_format fmt, int n);
+int			writef_pointer(int fd, t_format fmt, void *ptr);
+int			writef_rune(int fd, t_format fmt, char rune);
+int			writef_uint(int fd, t_format fmt, unsigned int n);
+int			writef_hex_low(int fd, t_format fmt, unsigned int n);
+int			writef_hex_up(int fd, t_format fmt, unsigned int n);
+int			writef_cstring(int fd, t_format fmt, const char *str);
+int			writef_cstring(int fd, t_format fmt, const char *str);
 
 int			writef(const char *format, ...);
 int			writefd(int fd, const char *format, ...);

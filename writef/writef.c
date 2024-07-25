@@ -6,9 +6,27 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 18:59:31 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/23 13:04:40 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/07/25 09:17:06 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// static void	write_bytes(char *buff, uint count) {
+// 	#define COL 8
+// 	for (uint i = 0; i < (count / COL); i++) {
+// 		for (uint j = 0; j < COL; j++) {
+// 			if (i * count + j >= count)
+// 				break ;
+// 			if (buff[i * count + j] == '\n')
+// 				writef("<\\n>");
+// 			else if (buff[i * count + j] == '\0')
+// 				writef("<\\0>");
+// 			else
+// 				writef("%c", buff[i * count + j]);
+// 			writef(" ");
+// 		}
+// 		writef("\n");
+// 	}
+// }
 
 #include <stdarg.h>
 #include <unistd.h>
@@ -36,72 +54,6 @@ t_format	writef_format(const char *format, int *offset)
 		*offset += i;
 	return (fmt);
 }
-
-int	writef_cstring(int fd, t_format fmt, const char *str)
-{
-	int	bytes;
-
-	bytes = 0;
-	if (!(fmt.modifiers & FORMAT_MODIFIER_PRECISION))
-		bytes += write_cstring(fd, str);
-	else
-		bytes += write_string(fd, str, min(fmt.precision, string_length(str)));
-	return (bytes);
-}
-
-int	writef_pointer(int fd, t_format fmt, void *ptr)
-{
-	(void)fmt;
-	return (write_cstring(fd, "0x") + write_ulong_hex_low(fd, (long)ptr));
-}
-
-int	writef_hex_low(int fd, t_format fmt, unsigned int n)
-{
-	(void)fmt;
-	return (write_uint_hex_low(fd, n));
-}
-
-int	writef_hex_up(int fd, t_format fmt, unsigned int n)
-{
-	(void)fmt;
-	return (write_uint_hex_up(fd, n));
-}
-
-int	writef_uint(int fd, t_format fmt, unsigned int n)
-{
-	(void)fmt;
-	return (write_uint(fd, n));
-}
-
-int	writef_int(int fd, t_format fmt, int n)
-{
-	(void)fmt;
-	return (write_int(fd, n));
-}
-
-int	writef_rune(int fd, t_format fmt, char rune)
-{
-	(void)fmt;
-	return (write_rune(fd, rune));
-}
-
-// static void	write_bytes(char *buff, uint count) {
-// 	#define COL 8
-// 	for (uint i = 0; i < (count / COL); i++) {
-// 		for (uint j = 0; j < COL; j++) {
-// 			if (i * count + j >= count)
-// 				break ;
-// 			if (buff[i * count + j] == '\n')
-// 				writef("<\\n>");
-// 			else if (buff[i * count + j] == '\0')
-// 				writef("<\\0>");
-// 			else
-// 				writef("%c", buff[i * count + j]);
-// 			writef(" ");
-// 		}
-// 		writef("\n");
-// 	}
-// }
 
 int	writef_dynamic(int fd, const char *format, int *offset, va_list args)
 {

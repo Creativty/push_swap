@@ -6,7 +6,7 @@
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 13:38:38 by aindjare          #+#    #+#             */
-/*   Updated: 2024/07/24 11:50:37 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/07/25 10:00:48 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,33 @@
 #include "string/string.h"
 #include "writef/writef.h"
 
-int	state_atoi(t_state *state, const char *arg)
+long	state_atoi_parse(t_state *state, const char *arg, int i)
 {
-	int		i;
 	long	n;
-	long	sign;
 
 	n = 0;
-	i = 0;
-	sign = 1;
-	state_set_error(state, string_includes_not(arg, "-0123456789"));
-	state_set_error(state, string_length(arg) == 0);
-	if (!arg || state->is_error)
-		return (n);
-	if (arg[i] == '-')
-	{
-		sign = -1;
-		i++;
-	}
 	while (string_includes("0123456789", arg[i]))
+	{
 		n = (n * 10) + (long)(arg[i++] - '0');
-	if (n > (long)INT_MAX || n < (long)INT_MIN || arg[i] != '\0')
+		if (n > (long)INT_MAX || n < (long)INT_MIN)
+			return (state_set_error(state, 1), -1);
+	}
+	if (i == 0 || !string_includes("0123456789", arg[i - 1]))
 		return (state_set_error(state, 1), -1);
-	return (n * sign);
+	else
+		return (n);
+}
+
+int	state_atoi(t_state *state, const char *arg)
+{
+	long	sign;
+
+	sign = 1;
+	if (!arg || !string_length(arg) || string_includes_not(arg, "-+0123456789"))
+		return (state_set_error(state, 1), -1);
+	if (*arg == '-')
+		sign = -1;
+	return (state_atoi_parse(state, arg, *arg == '-' || *arg == '+') * sign);
 }
 
 void	state_set_error(t_state *state, int error)

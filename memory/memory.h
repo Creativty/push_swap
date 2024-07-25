@@ -6,7 +6,7 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:21:14 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/24 12:24:21 by aindjare         ###   ########.fr       */
+/*   Updated: 2024/07/25 09:34:15 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ void	memory_free_count(void **array, int count, int self);
 void	memory_free_cstyle(void **array, int self);
 void	memory_move(void *src, t_uint count, void *dst);
 void	memory_copy(void *src, t_uint count, void *dst);
+t_uint	memory_length(void **array);
 
 #endif

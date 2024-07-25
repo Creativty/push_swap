@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   write_rune.c                                       :+:      :+:    :+:   */
+/*   memory_length.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aindjare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/24 12:29:44 by aindjare          #+#    #+#             */
-/*   Updated: 2024/07/25 09:17:00 by aindjare         ###   ########.fr       */
+/*   Created: 2024/07/25 09:32:58 by aindjare          #+#    #+#             */
+/*   Updated: 2024/07/25 10:12:11 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "writef.h"
+#include "memory.h"
 
-int	write_rune(int fd, unsigned char rune)
+t_uint	memory_length(void **array)
 {
-	return (write(fd, &rune, 1));
-}
+	t_uint	len;
 
-int	write_rune_repeat(int fd, unsigned char rune, int count)
-{
-	int	i;
-
-	i = 0;
-	while (i < count)
+	len = 0;
+	if (array)
 	{
-		if (write_rune(fd, rune) < 0)
-			break ;
-		i++;
+		while (array[len])
+			len++;
 	}
-	return (i);
-}
-
-int	writef_rune(int fd, t_format fmt, char rune)
-{
-	(void)fmt;
-	return (write_rune(fd, rune));
+	return (len);
 }

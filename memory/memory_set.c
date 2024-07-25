@@ -6,13 +6,13 @@
 /*   By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:28:48 by abderrahim        #+#    #+#             */
-/*   Updated: 2024/07/08 15:29:40 by abderrahim       ###   ########.fr       */
+/*   Updated: 2024/07/25 09:11:22 by aindjare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory.h"
 
-void	memory_set(void	*memory, int size, byte rune)
+void	memory_set(void	*memory, int size, t_byte rune)
 {
 	int	i;
 

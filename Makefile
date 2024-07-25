@@ -6,7 +6,7 @@
 #    By: abderrahim <marvin@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/11 18:06:45 by abderrahim        #+#    #+#              #
-#    Updated: 2024/07/24 12:27:13 by aindjare         ###   ########.fr        #
+#    Updated: 2024/07/25 09:13:24 by aindjare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,13 @@ RM			:=	rm -rf
 
 NAME		:=	push_swap
 NAME_BONUS	:=	checker
-OBJS		:=	push_swap.o state.o state_action.o state_utility.o \
-				state_sorters.o state_argv.o quicksort.o
-OBJS_BONUS	:=	checker.o state.o state_action.o state_utility.o input/libinput.a
-SHARED_OBJS	:=	writef/libwritef.a string/libstring.a stack/libstack.a \
-				stack/list/liblist.a memory/libmemory.a
+OBJS		:=	push_swap.o state_sorters.o quicksort.o quicksort_a2b_three.o \
+				quicksort_b2a_three.o quicksort_place.o quicksort_rewind.o \
+				quicksort_two.o
+OBJS_BONUS	:=	checker.o input/libinput.a
+SHARED_OBJS	:=	writef/libwritef.a state.o state_action.o state_utility.o \
+				state_argv.o string/libstring.a \
+				stack/libstack.a stack/list/liblist.a memory/libmemory.a
 
 all: $(NAME)
 
